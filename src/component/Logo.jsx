@@ -1,8 +1,9 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-const Logo = () => {
+const Logo = ({ variants }) => {
   return (
-    <div className="logo">
+    <motion.div variants={variants} className="logo">
       <svg
         width="90"
         height="40"
@@ -23,7 +24,7 @@ const Logo = () => {
           fill="#212023"
         />
       </svg>
-    </div>
+    </motion.div>
   );
 };
 

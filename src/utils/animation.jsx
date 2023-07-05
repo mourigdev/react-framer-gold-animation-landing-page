@@ -1,4 +1,4 @@
-export const animationStart = 6;
+export const animationStart = 5;
 
 export const reveal = {
   hiddenVarient: {

@@ -1,16 +1,35 @@
 import React from "react";
 import Logo from "./Logo";
 import NavBar from "./NavBar";
+import { motion } from "framer-motion";
+import { reveal, animationStart } from "../utils/animation";
 
 const items = ["Services", "Tutorial", "Exercices", "Get Certified"];
 
 const Header = () => {
   return (
-    <>
-      <header className="header-nav">
-        <Logo></Logo>
-        <NavBar items={items} />
-        <div className="signup-Btn scale">
+    <motion.div
+      initial={{ height: 0 }}
+      animate={{ height: "unset" }}
+      transition={{ delay: 5, duration: 1 }}
+    >
+      <motion.header
+        variants={reveal}
+        initial="hiddenVarient"
+        animate="revealedVarient"
+        transition={{
+          delay: animationStart,
+          duration: 0.5,
+          ease: "easeIn",
+          type: "tween",
+          staggerChildren: 0.1,
+          delayChildren: animationStart + 0.5,
+        }}
+        className="header-nav"
+      >
+        <Logo variants={reveal} />
+        <NavBar items={items} variants={reveal} />
+        <motion.div variants={reveal} className="signup-Btn scale">
           <span>sign up</span>
           <svg
             width="18"
@@ -31,9 +50,9 @@ const Header = () => {
               </clipPath>
             </defs>
           </svg>
-        </div>
-      </header>
-    </>
+        </motion.div>
+      </motion.header>
+    </motion.div>
   );
 };
 
